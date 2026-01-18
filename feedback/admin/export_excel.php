@@ -14,6 +14,14 @@ $sql = "SELECT * FROM feedback
         ORDER BY created_at DESC";
 $result = mysqli_query($conn, $sql);
 
+$summary = [
+    'food'  => ['Good'=>0,'Average'=>0,'Bad'=>0],
+    'pool'  => ['Good'=>0,'Average'=>0,'Bad'=>0],
+    'music' => ['Good'=>0,'Average'=>0,'Bad'=>0],
+    'wifi'  => ['Good'=>0,'Average'=>0,'Bad'=>0],
+];
+
+
 /* FUNCTION WARNA */
 function cellColor($val) {
     if ($val == 'Good') return '#2ECC71';
@@ -67,7 +75,14 @@ function cellColor($val) {
     <th>WiFi</th>
 </tr>
 
-<?php while($row = mysqli_fetch_assoc($result)): ?>
+<?php while($row = mysqli_fetch_assoc($result)): 
+
+    $summary['food'][$row['food']]++;
+    $summary['pool'][$row['pool']]++;
+    $summary['music'][$row['music']]++;
+    $summary['wifi'][$row['wifi']]++;
+
+?>
 <tr>
     <td><?= $row['created_at'] ?></td>
     <td><?= $row['guest_name'] ?: '-' ?></td>
@@ -87,5 +102,39 @@ function cellColor($val) {
     </td>
 </tr>
 <?php endwhile; ?>
+
+<br><br>
+
+<table border="1" cellpadding="8" cellspacing="0" width="70%">
+<tr style="
+    background:#222;
+    color:white;
+    text-align:center;
+    font-weight:bold;
+">
+    <th>Category</th>
+    <th>Good</th>
+    <th>Average</th>
+    <th>Bad</th>
+</tr>
+
+<?php foreach($summary as $key => $val): ?>
+<tr style="text-align:center;">
+    <td style="font-weight:bold;">
+        <?= ucfirst($key) ?>
+    </td>
+    <td style="background:#2ECC71;">
+        <?= $val['Good'] ?>
+    </td>
+    <td style="background:#F1C40F;">
+        <?= $val['Average'] ?>
+    </td>
+    <td style="background:#E74C3C; color:white;">
+        <?= $val['Bad'] ?>
+    </td>
+</tr>
+<?php endforeach; ?>
+</table>
+
 
 </table>
