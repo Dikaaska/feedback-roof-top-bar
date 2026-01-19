@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Thank You</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body{
+    margin:0;
+    height:100vh;
+    background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-family:'Segoe UI',sans-serif;
+}
+.container{
+    text-align:center;
+    color:#fff;
+}
+.container h1{
+    font-size:42px;
+    margin-bottom:10px;
+}
+.container p{
+    font-size:18px;
+    opacity:.9;
+}
+button{
+    margin-top:30px;
+    padding:14px 32px;
+    font-size:18px;
+    border:none;
+    border-radius:14px;
+    background:#ad02fc;
+    color:#fff;
+    cursor:pointer;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Thank You 🙏</h1>
+    <p>Your feedback has been submitted</p>
+
+    <button onclick="goBack()">Back to Feedback</button>
+</div>
+
+<script>
+function goBack(){
+    window.location.href = "index.html"; // ganti sesuai nama file feedback
+}
+</script>
+
+</body>
+</html>
