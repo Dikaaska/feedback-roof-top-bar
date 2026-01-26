@@ -141,6 +141,40 @@ body{
 .emoji-good{animation:bounce .4s}
 
 
+/* SUPER label above button 10 */
+.super-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.super-text {
+    font-size: 14px;
+    font-weight: 600;
+    color: #111; /* item / hitam */
+    margin-bottom: 6px;
+    pointer-events: none;
+}
+
+.has-super {
+  position: relative;
+  overflow: visible;
+}
+
+.super-static {
+  position: absolute;
+  top: -18px;        /* posisi di atas tombol */
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 13px;
+  font-weight: 600;
+  color: #111;      /* item */
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+
 /* ======================
    SCALE BUTTON
 ====================== */
