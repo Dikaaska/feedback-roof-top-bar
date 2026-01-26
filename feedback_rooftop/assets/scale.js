@@ -25,6 +25,16 @@ document.addEventListener('DOMContentLoaded', () => {
       const btn = document.createElement('span');
       btn.textContent = i;
 
+      if (i === 10) {
+    btn.classList.add('has-super');
+
+    const superLabel = document.createElement('div');
+    superLabel.className = 'super-static';
+    superLabel.innerText = 'Super';
+
+    btn.appendChild(superLabel);
+  }
+
       btn.addEventListener('click', () => {
 
         // reset scale
